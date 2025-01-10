@@ -86,11 +86,11 @@
     char variables[1000][1000];
     char strings[1000][1000];
 
-	// void assignNull(){
-	// 	for(int i=0;i<1000;i++){
-	// 		val[i]='\0';
-	// 	}
-	// }
+	void assignNull(){
+		for(int i=0;i<1000;i++){
+			val[i]='\0';
+		}
+	}
 	void lcm(int a,int b)
 	{
 		int c=fmax(a,b);
@@ -2441,8 +2441,8 @@ yyreduce:
     {
 						int len = strlen((yyvsp[(1) - (1)].s));
 						char temp[len];
-						for(int i=1;i<len-1;i++) temp[i-1] = (yyvsp[(1) - (1)].s)[i];
-						temp[len-1] = '\0';
+						for(int i=0;i<len-1;i++) temp[i] = (yyvsp[(1) - (1)].s)[i+1];
+						temp[len-2] = '\0';
 						strcpy((yyval.s),temp);
 					;}
     break;

@@ -397,8 +397,8 @@
 					{
 						int len = strlen($1);
 						char temp[len];
-						for(int i=1;i<len-1;i++) temp[i-1] = $1[i];
-						temp[len-1] = '\0';
+						for(int i=0;i<len-1;i++) temp[i] = $1[i+1];
+						temp[len-2] = '\0';
 						strcpy($$,temp);
 					}
 				; 
