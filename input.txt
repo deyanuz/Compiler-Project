@@ -1,15 +1,26 @@
 start
 <<
 int a , b , c;
+char x;
 **---this is for comment---**
 in(c);
 **---this is for scanf---**
 out("fortakinginput:");
 **---this is for printf---**
-out(c);
+x:="hello, world!";
+out(x);
 out(//);
+
 a:=5;
+out("a: ");
+out(a);
+out(//);
+
+out("b: ");
 b:=6;
+out(b);
+out(//);
+
 **---Different Operators---**
 c:= - a ;
 out("-a:");
@@ -154,8 +165,8 @@ until <6> do
     out(//);
 }
 **---Function---**
-a -> lsg ( b );
-a->gsg(b);
+a -> lcm ( b );
+a->gcd(b);
 a->swp(b);
 out("valueOfa:");
 out(a);

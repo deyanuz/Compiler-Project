@@ -13,6 +13,13 @@
     int vptr = 0;
     int val[1000];
     char variables[1000][1000];
+    char strings[1000][1000];
+
+	void assignNull(){
+		for(int i=0;i<1000;i++){
+			val[i]='\0';
+		}
+	}
 	void lcm(int a,int b)
 	{
 		int c=fmax(a,b);
@@ -50,13 +57,21 @@
         return 0;
     }
     
-    int addval(char str[],int newval){// if a variable is not already exist add new value
+    int addval(char str[],int newval){// if a variable does not already exist add new value
         if(ifExists(str) == 1) return 0;
         strcpy(variables[vptr],str);
         val[vptr] = newval;
         vptr++;
         return 1;
     }
+
+	int addstr(char str[],char newstr[]){ // if a variable does not already exist add new string
+		if(ifExists(str) == 1) return 0;
+		strcpy(variables[vptr],str);
+		strcpy(strings[vptr],newstr);
+		vptr++;
+		return 1;
+	}
 
     int getval(char str[]){//for getting value
         int idx = -1;
@@ -69,6 +84,18 @@
         }
         return val[idx];
     }
+
+	char* getstr(char str[]){
+		int idx = -1;
+		int i;
+		for(i = 0; i < vptr; i++){
+			if(strcmp(variables[i],str) == 0) {
+				idx = i;
+				break;
+			}
+		}
+		return strings[idx];
+	}
     int setval(char str[], int newval){
     	int idx = -1;
         int i;
@@ -81,6 +108,17 @@
         val[idx] = newval;
 
     }
+	int setstr(char str[],char newstr[]){
+		int idx = -1;
+		int i;
+		for(i = 0; i < vptr; i++){
+			if(strcmp(variables[i],str) == 0) {
+				idx = i;
+				break;
+			}
+		}
+		strcpy(strings[idx],newstr);
+	}
 	int swdone = 0;
 	double swvar;
 
@@ -99,6 +137,7 @@
 
 
 %type <d> expr
+%type <s> strexpr
 %token <s> Id
 %token <i> Num
 %token <s> Str
@@ -172,6 +211,14 @@
 							exit(-1);
 							}
 					}
+					|Id EQ strexpr
+					{
+						int a = addstr($1,$3);
+						if(!a) {
+							printf(" %s is already exist\n",$1);
+							exit(-1);
+							}
+					}
 
 					;
 
@@ -186,6 +233,16 @@
 							setval($1,$3);
 						}
 				    }
+					| Id EQ strexpr
+					{
+						if(!ifExists($1)) {
+							printf("%s is not declared\n",$1);
+							exit(-1);
+						}
+						else{
+							setstr($1,$3);
+						}
+					}
 					;
 	//for printing value
 	output :	COUT '(' Id ')'
@@ -196,7 +253,8 @@
 						}
 						else{
 							int a = getval($3);
-							printf("%d",a);
+							if(a=='\0') printf("%s",getstr($3));
+							else printf("%d",a);
 						}
 				}
 				|COUT '(' expr ')'
@@ -212,6 +270,10 @@
 				|COUT '(' NL ')'
 				{
 					printf("\n");
+				}
+				|COUT '(' strexpr ')'
+				{
+					printf("%s",$3);
 				}
 				;
 	//for taking input
@@ -331,6 +393,14 @@
 							for(long long i=1;i<=$1;i++) x*=i;
 							$$ = x;
 						}
+	strexpr :		Str
+					{
+						int len = strlen($1);
+						char temp[len];
+						for(int i=1;i<len-1;i++) temp[i-1] = $1[i];
+						temp[len-1] = '\0';
+						strcpy($$,temp);
+					}
 				; 
 	//For conditional statement
 	ifstatement: IF '(' ifexpr ')' '{' statement '}' elseif

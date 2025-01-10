@@ -110,7 +110,7 @@ typedef union YYSTYPE
 {
 
 /* Line 1676 of yacc.c  */
-#line 94 ".\\main.y"
+#line 132 ".\\main.y"
 
 	int i;
 	double d;

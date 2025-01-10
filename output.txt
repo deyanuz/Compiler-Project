@@ -9,7 +9,9 @@
 **---this is for scanf---**
 fortakinginput:
 **---this is for printf---**
-0
+hello, world!
+a: 5
+b: 6
 
 **---Different Operators---**
 -a:-5
@@ -23,15 +25,15 @@ a%b:1
 a^b:15625
 a<b:1
 a<=b:1
-a>b:0
-a>=b:0
+a>b:
+a>=b:
 sinOf30:-0.988032
 cosOf30:0.154251
 tanOf30:-6.405331
 logOf30:1.477121
 lnOf30:3.401197
 sqrtOf305.477226
-checkIfa&bEqual:0
+checkIfa&bEqual:
 checkIfa&bNotEqual:1
 a&b:1
 a|b:1
@@ -39,7 +41,7 @@ aXorb:3
 maximumOfa&b:6
 minimumOfa&b:5
 factorialOfa:120
-notOf1:0
+notOf1:
 
 ** -----conditional statement------- **
 
