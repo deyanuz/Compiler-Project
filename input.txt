@@ -1,0 +1,193 @@
+start
+<<
+int a , b , c;
+**---this is for comment---**
+in(c);
+**---this is for scanf---**
+out("fortakinginput:");
+**---this is for printf---**
+out(c);
+out(//);
+a:=5;
+b:=6;
+**---Different Operators---**
+c:= - a ;
+out("-a:");
+out(c);
+out(//);
+c:=a pp;
+out("a++:");
+out(c);
+out(//);
+c:= a mm;
+out("a--:");
+out(c);
+out(//);
+c:= a + b;
+out("a+b:");
+out(c);
+out(//);
+c:= a - b;
+out("a-b:");
+out(c);
+out(//);
+c:= a * b;
+out("a*b:");
+out(c);
+out(//);
+c:= b / a;
+out("a/b:");
+out(c);
+out(//);
+c:= b mod a;
+out("a%b:");
+out(c);
+out(//);
+c:= a pow b;
+out("a^b:");
+out(c);
+out(//);
+c:= a lt b;
+out("a<b:");
+out(c);
+out(//);
+c:= a lte b;
+out("a<=b:");
+out(c);
+out(//);
+c:= a gt b;
+out("a>b:");
+out(c);
+out(//);
+c:= a gte b;
+out("a>=b:");
+out(c);
+out(//);
+out("sinOf30:");
+out(sin(30));
+out(//);
+out("cosOf30:");
+out(cos(30));
+out(//);
+out("tanOf30:");
+out(tan(30));
+out(//);
+out("logOf30:");
+out(log(30));
+out(//);
+out("lnOf30:");
+out(ln(30));
+out(//);
+out("sqrtOf30");
+out(sqr(30));
+out(//);
+c:= a :== b;
+out("checkIfa&bEqual:");
+out(c);
+out(//);
+c:= a !:= b;
+out("checkIfa&bNotEqual:");
+out(c);
+out(//);
+c:= a and b;
+out("a&b:");
+out(c);
+out(//);
+c:= a or b;
+out("a|b:");
+out(c);
+out(//);
+c:= a xor b;
+out("aXorb:");
+out(c);
+out(//);
+c:= max(a,b);
+out("maximumOfa&b:");
+out(c);
+out(//);
+c:= min(a,b);
+out("minimumOfa&b:");
+out(c);
+out(//);
+c:= a fact;
+out("factorialOfa:");
+out(c);
+out(//);
+c:= not 1;
+out("notOf1:");
+out(c);
+out(//);
+** -----conditional statement------- **
+if (a lt b )
+{
+    c:=a;
+    if(a!:=0)
+    {
+        out("NestedIf:");
+        out(//);
+    }
+    else
+    {
+        out("NestedElse:");
+        out(//); 
+    } 
+}
+elif (a :== b)
+{
+    c:= a + b;
+}
+else
+{
+    c:=b;
+}
+** -----For loop -----**
+forst < 0 > foren < 15 > step < 3 >
+{
+    out("helloWorld!");
+    out(//);
+}
+
+**----While loop:this decreaments by one works as reverse of for loop----**
+until <6> do
+{
+    out("helloWorld!");
+    out(//);
+}
+**---Function---**
+a -> lsg ( b );
+a->gsg(b);
+a->swp(b);
+out("valueOfa:");
+out(a);
+out(//);
+out("valueOfb:");
+out(b);
+out(//);
+c:=3;
+**---Switch statement---**
+change (c)
+{
+    
+    none :
+    {
+        c:=0;
+    }
+     case 4:
+    {
+        c:=4;
+    }
+     case 3:
+    {
+        c:=3;
+    }
+    case 2 :
+    {
+        c:=2;
+    }
+    case 1 :
+    {
+        c:=1;
+    }
+}
+>>
+
