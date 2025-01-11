@@ -63,8 +63,12 @@ int line = 1;
 "gcd"			{return GCD;}
 "->"			{return APPEND;}
 "swp"			{return SWAP;}
-[-]?[0-9]+[.]?[0-9]*	{yylval.i = atoi(yytext);
+[-]?[0-9]+	{yylval.i = atoi(yytext);
 						return Num; }
+[-]?[0-9]+[.][0-9]+	{
+                         yylval.d = atof(yytext);
+                         return Float;
+                       }
 [a-zA-z0-9]+	{ strcpy(yylval.s,yytext);return Id;}
 "()" 						{}
 

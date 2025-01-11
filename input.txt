@@ -1,14 +1,24 @@
 start
 <<
 int a , b , c;
+float d;
 char x;
+char y;
+char z;
 **---this is for comment---**
 in(c);
 **---this is for scanf---**
 out("fortakinginput:");
 **---this is for printf---**
-x:="hello, world!";
+x:="hello";
+y:=" world!";
+z:= x + y;
+out("z: ");
+out(z);
+out(//);
 out(x);
+out(y);
+out(" zunayed");
 out(//);
 
 a:=5;
@@ -21,83 +31,87 @@ b:=6;
 out(b);
 out(//);
 
+d:=3.14;
+out("d: ");
+out(d);
+out(//);
 **---Different Operators---**
 c:= - a ;
-out("-a:");
+out("-a: ");
 out(c);
 out(//);
 c:=a pp;
-out("a++:");
+out("a++: ");
 out(c);
 out(//);
 c:= a mm;
-out("a--:");
+out("a--: ");
 out(c);
 out(//);
 c:= a + b;
-out("a+b:");
+out("a+b: ");
 out(c);
 out(//);
 c:= a - b;
-out("a-b:");
+out("a-b: ");
 out(c);
 out(//);
 c:= a * b;
-out("a*b:");
+out("a*b: ");
 out(c);
 out(//);
 c:= b / a;
-out("a/b:");
+out("a/b: ");
 out(c);
 out(//);
 c:= b mod a;
-out("a%b:");
+out("a%b: ");
 out(c);
 out(//);
 c:= a pow b;
-out("a^b:");
+out("a^b: ");
 out(c);
 out(//);
-c:= a lt b;
-out("a<b:");
+c:=a lt b;
+out("a<b: ");
 out(c);
 out(//);
 c:= a lte b;
-out("a<=b:");
+out("a<=b: ");
 out(c);
 out(//);
 c:= a gt b;
-out("a>b:");
+out("a>b: ");
 out(c);
 out(//);
 c:= a gte b;
-out("a>=b:");
+out("a>=b: ");
 out(c);
 out(//);
-out("sinOf30:");
+out("sinOf30: ");
 out(sin(30));
 out(//);
-out("cosOf30:");
+out("cosOf30: ");
 out(cos(30));
 out(//);
-out("tanOf30:");
+out("tanOf30: ");
 out(tan(30));
 out(//);
-out("logOf30:");
+out("logOf30: ");
 out(log(30));
 out(//);
-out("lnOf30:");
+out("lnOf30: ");
 out(ln(30));
 out(//);
-out("sqrtOf30");
+out("sqrtOf30: ");
 out(sqr(30));
 out(//);
 c:= a :== b;
-out("checkIfa&bEqual:");
+out("checkIfa&bEqual: ");
 out(c);
 out(//);
 c:= a !:= b;
-out("checkIfa&bNotEqual:");
+out("checkIfa&bNotEqual: ");
 out(c);
 out(//);
 c:= a and b;
@@ -105,7 +119,7 @@ out("a&b:");
 out(c);
 out(//);
 c:= a or b;
-out("a|b:");
+out("a|b: ");
 out(c);
 out(//);
 c:= a xor b;
@@ -129,6 +143,15 @@ out("notOf1:");
 out(c);
 out(//);
 ** -----conditional statement------- **
+out("a: ");
+out(a);
+out(//);
+out("b: ");
+out(b);
+out(//);
+out("c: ");
+out(c);
+out(//);
 if (a lt b )
 {
     c:=a;
@@ -146,10 +169,14 @@ if (a lt b )
 elif (a :== b)
 {
     c:= a + b;
+    out("elif block");
+    out(//);
 }
 else
 {
     c:=b;
+    out("else block");
+    out(//);
 }
 ** -----For loop -----**
 forst < 0 > foren < 15 > step < 3 >

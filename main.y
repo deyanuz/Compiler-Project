@@ -141,6 +141,7 @@
 %token <s> Id
 %token <i> Num
 %token <s> Str
+%token <d> Float
 
 %token GO EOL START END NL
 %token INT FLOAT CHAR
@@ -253,8 +254,10 @@
 						}
 						else{
 							int a = getval($3);
-							if(a=='\0') printf("%s",getstr($3));
-							else printf("%d",a);
+							char *b = getstr($3);
+							if(strcmp(b,"")==0){printf("%d",a);}
+							else if(a=='\0') printf("%s",b);
+							 
 						}
 				}
 				|COUT '(' expr ')'
@@ -285,7 +288,8 @@
 					
 				}
 	//for different expressions
-	expr : Num {$$ = $1;}
+	expr : 		  Num {$$ = $1;}
+				| Float {$$ = $1;}
 				| Id	
 					{
 						if(!ifExists($1)) {
@@ -395,11 +399,26 @@
 						}
 	strexpr :		Str
 					{
+						if($1[0]=='"'){
 						int len = strlen($1);
 						char temp[len];
 						for(int i=0;i<len-1;i++) temp[i] = $1[i+1];
 						temp[len-2] = '\0';
 						strcpy($$,temp);
+						}
+						else{
+							strcpy($$,$1);
+						}
+					}
+					| strexpr PLUS strexpr
+					{
+						int len1 = strlen($1);
+						int len2 = strlen($3);
+						char temp[len1+len2];
+						strcpy(temp,$1);
+						strcat(temp,$3);
+						strcpy($$,temp);
+						printf("%s",$3);
 					}
 				; 
 	//For conditional statement
